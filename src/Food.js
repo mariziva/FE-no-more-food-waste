@@ -32,12 +32,12 @@ function Message({ food, currentFood, onFoodDelete, onUpdateFood }) {
     ) : (
         <p>{body}</p>
     )}
-        <div className="actions">
-            <button onClick={handleDeleteClick}>
+        <div className="actions">         
             <span role="img" aria-label="delete">
-                🗑 {food.name}
+              {food.name} 
             </span>
-            </button>
+            <button onClick={handleDeleteClick}> Delete
+            </button >
         </div>
     </li>
     );

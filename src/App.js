@@ -21,9 +21,12 @@ function App() {
 
   return (
     <div className="App">
+      <div className="card">
+        <h1>Food Items</h1>
       <FoodList  foods= {foods}
         onFoodDelete={handleDeleteFood}
       />
+    </div>
     </div>
   );
 }
