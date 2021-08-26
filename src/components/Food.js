@@ -32,6 +32,8 @@ function Food({ food, currentFood, onFoodDelete }) {
                     name={name}
                     food={food}
                     onUpdateFood={handleUpdateFood}
+                    setIsEditing={setIsEditing}
+                    isEditing={isEditing}
                 />
             ) : (
                 <span> <p><img src={`${food.img_url}`} /></p>

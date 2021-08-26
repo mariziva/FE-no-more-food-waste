@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 
-function EditFood({ id, food, onUpdateFood }) {
+function EditFood({ id, food, isEditing, setIsEditing }) {
     const [foodBody, setFoodBody] = useState("");
     const [quantity, setFoodQuantity] = useState("");
     console.log(food)
@@ -23,7 +23,8 @@ function EditFood({ id, food, onUpdateFood }) {
             .then((r) => r.json())
             .then((updatedFood) => setFoodBody(updatedFood))
             .then((updatedFood) => setFoodQuantity(updatedFood))
-            .then(onUpdateFood());
+            .then(setIsEditing(!isEditing))
+            .then(window.location.reload());
 
     }
 
@@ -34,15 +35,19 @@ function EditFood({ id, food, onUpdateFood }) {
                 name="body"
                 autoComplete="off"
                 value={foodBody}
+                placeholder="Name"
                 onChange={(e) => setFoodBody(e.target.value)}
             />
+            <br />
             <input
                 type="text"
                 name="quantity"
                 autoComplete="off"
                 value={quantity}
+                placeholder="Quantity"
                 onChange={(e) => setFoodQuantity(e.target.value)}
             />
+            <br />
             <input type="submit" value="Save" />
         </form>
     );
