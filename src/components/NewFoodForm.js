@@ -7,7 +7,7 @@ function NewFoodForm({ addNewFoodItem }) {
   const [quantity, setQuantity] = useState(1);
   const [unit, setUnit] = useState('');
   const [category, setCategory] = useState('');
-  const [imageUrl, setImageUrl] = useState('')
+  const [img_url, setImageUrl] = useState('');
   const [daysUntilExpiration, setDaysUntilExpiration] = useState(0);
   const [dateOfPurchase, setDateOfPurchase] = useState(new Date());
 
@@ -23,7 +23,7 @@ function NewFoodForm({ addNewFoodItem }) {
         quantity: quantity,
         unit: unit,
         category: category,
-        img_url: imageUrl,
+        img_url: img_url,
         daysUntilExpiration: daysUntilExpiration,
         dateOfPurchase: dateOfPurchase
       }),
@@ -34,6 +34,7 @@ function NewFoodForm({ addNewFoodItem }) {
     setQuantity(1)
     setUnit('')
     setCategory('')
+    setImageUrl('')
     setDaysUntilExpiration(0)
     setDateOfPurchase(new Date())
   }
@@ -71,9 +72,9 @@ function NewFoodForm({ addNewFoodItem }) {
         />
         <input
           type="text"
-          name="image url"
+          name="image_url"
           placeholder="Image URL"
-          value={imageUrl}
+          value={img_url}
           onChange={(e) => { setImageUrl(e.target.value) }}
         />
         <input

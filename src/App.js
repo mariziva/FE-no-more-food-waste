@@ -38,9 +38,13 @@ function App() {
 
   return (
     <div className="App">
-      
-      <FoodList foods={foods} onFoodDelete={handleDeleteFood}/>
+
+      <h1>Welcome to your virtual fridge</h1>
+      <h2>Add items, edit their names/quantities, or delete</h2>
+      <div className="card">
       <NewFoodForm addNewFoodItem={addNewFoodItem} />
+      <FoodList foods={foods} onFoodDelete={handleDeleteFood} />
+      </div>
     </div>
 
     

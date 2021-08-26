@@ -34,11 +34,16 @@ function Food({ food, currentFood, onFoodDelete }) {
                     onUpdateFood={handleUpdateFood}
                 />
             ) : (
-                <p onClick={handleClick}>{food.name}</p>
+                <span> <p><img src={`${food.img_url}`} /></p>
+                <li>{food.name}</li>
+                <li>{food.category}</li>
+                <li>{food.quantity}</li>
+                </span>
             )}
             <div className="actions">
                 <span role="img" aria-label="delete">
                 </span>
+                <button onClick={handleClick}>Edit</button>
                 <button onClick={handleDeleteClick}> Delete
                 </button >
             </div>
