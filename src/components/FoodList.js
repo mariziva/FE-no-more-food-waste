@@ -1,29 +1,49 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+// // import food from "./food";
+
+// function FoodList({ foods }) {
+
+//   // const [category, setCategory] = useState("")
+
+
+
+//   return (
+//     <div className="list">
+//       <ul>
+//         {foods.filter().map((foodz, index) => {
+//           return (
+//             <div>
+//               <p key={foodz.id}>{foodz.name} is {foodz.category}</p>
+//             </div>
+//           )
+//         })}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default FoodList;
+
+import React from "react";
+import Food from "./Food";
 // import food from "./food";
 
-function FoodList({ handleSubmit, foods }) {
-
-  const [category, setCategory] = useState("")
-
-  
-
+function FoodList({
+    onFoodDelete,
+    foods,
+}) {
   return (
     <div className="list">
       <ul>
-      {foods.filter(food => food.id).map((foodz, index) =>  {
-          return(
-        <div>
-          <p key={foodz.id}>{foodz.name} is {foodz.category}</p>
-          <form onSubmit={handleSubmit}>
-              <input type="text" name="category"
-              value={category}
-              onChange={(e) => {setCategory(e.target.value)}}
-              />
-            <input type="submit" value="Submit" />
-          </form>
-          
-          </div>
-        )})}
+        {foods.map((food) => (
+          <span>{food.name}</span>,
+          <Food
+          food={food}
+         onFoodDelete={onFoodDelete}
+          key={food.id}
+        />
+
+        ))}
       </ul>
     </div>
   );
