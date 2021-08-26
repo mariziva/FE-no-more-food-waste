@@ -4,18 +4,26 @@ import './App.css';
 
 
 function App() {
-  const [foods, setfood] = useState([]);
+  const [foods, setFoods] = useState([]);
+  
   // const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("http://127.0.0.1:9393/foods")
       .then((r) => r.json())
-      .then((foods) => setfood(foods));
+      .then((foods) => setFoods(foods));
   }, []);
+
+  function handleDeleteFood(id) {
+    const updatedFoods = foods.filter((food) => food.id !== id);
+    setFoods(updatedFoods);
+  }
 
   return (
     <div className="App">
-      <FoodList foods= {foods}/>
+      <FoodList  foods= {foods}
+        onFoodDelete={handleDeleteFood}
+      />
     </div>
   );
 }

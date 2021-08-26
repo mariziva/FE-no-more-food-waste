@@ -1,17 +1,22 @@
 import React from "react";
+import Food from "./Food";
 // import food from "./food";
 
 function FoodList({
-    
-  foods,
+    onFoodDelete,
+    foods,
 }) {
   return (
-    console.log(foods),
     <div className="list">
       <ul>
         {foods.map((food) => (
-          
-          <p key={food.id}>{food.name}</p>
+          <span>{food.name}</span>,
+          <Food
+          food={food}
+         onFoodDelete={onFoodDelete}
+          key={food.id}
+        />
+
         ))}
       </ul>
     </div>
