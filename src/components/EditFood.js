@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 
 
-function EditFood({ id, body, onUpdateFood }) {
+function EditFood({ id, food, onUpdateFood }) {
     const [foodBody, setFoodBody] = useState("");
-
+    console.log(food)
     console.log(foodBody)
 
     function handleFormSubmit(e) {
         e.preventDefault();
-        console.log(foodBody)
         fetch(`http://127.0.0.1:9393/foods/${id}`, {
             method: "PATCH",
             headers: {
@@ -19,7 +18,9 @@ function EditFood({ id, body, onUpdateFood }) {
             }),
         })
             .then((r) => r.json())
-            .then((updatedFood) => onUpdateFood(updatedFood));
+            .then((updatedFood) => setFoodBody(updatedFood))
+            .then(onUpdateFood());
+
     }
 
     return (

@@ -4,7 +4,7 @@ import EditFood from "./EditFood";
 function Food({ food, currentFood, onFoodDelete }) {
     const [isEditing, setIsEditing] = useState(false);
 
-    const { id, body } = food
+    const { id, name } = food
 
 
     function handleDeleteClick() {
@@ -16,11 +16,10 @@ function Food({ food, currentFood, onFoodDelete }) {
     }
 
     function handleUpdateFood(updatedFood) {
-        setIsEditing(false);
-        // onUpdateFood(updatedFood);
+        setIsEditing(!isEditing)
     }
 
-    function handleClick(e){
+    function handleClick(e) {
         setIsEditing(!isEditing)
     }
 
@@ -30,15 +29,15 @@ function Food({ food, currentFood, onFoodDelete }) {
             {isEditing ? (
                 <EditFood
                     id={id}
-                    body={body}
+                    name={name}
+                    food={food}
                     onUpdateFood={handleUpdateFood}
                 />
             ) : (
-                <p>{body}</p>
+                <p onClick={handleClick}>{food.name}</p>
             )}
             <div className="actions">
                 <span role="img" aria-label="delete">
-                    <p onClick={handleClick}>{food.name}</p>
                 </span>
                 <button onClick={handleDeleteClick}> Delete
                 </button >

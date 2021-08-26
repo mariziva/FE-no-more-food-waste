@@ -38,6 +38,7 @@ function App() {
 
   return (
     <div className="App">
+      
       <FoodList foods={foods} onFoodDelete={handleDeleteFood}/>
       <NewFoodForm addNewFoodItem={addNewFoodItem} />
     </div>
